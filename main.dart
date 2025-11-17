@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/Dashboard.dart';
+import 'screens/welcom_screen.dart';
 
 void main() {
   runApp(const VarietasApp());
@@ -18,7 +18,7 @@ class VarietasApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         useMaterial3: true,
       ),
-      home: const WelcomeScreen(),
+      home: const Dashboard(),
     );
   }
 }
