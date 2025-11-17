@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/welcome_screen.dart';
+import 'screens/Dashboard.dart';
 
 void main() {
   runApp(const VarietasApp());
