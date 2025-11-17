@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'worker_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -40,12 +41,12 @@ class HomeScreen extends StatelessWidget {
                 crossAxisSpacing: 15,
                 mainAxisSpacing: 15,
                 children: [
-                  categoryItem("Maid", Icons.cleaning_services),
-                  categoryItem("Plumber", Icons.plumbing),
-                  categoryItem("Electrician", Icons.electrical_services),
-                  categoryItem("Carpenter", Icons.chair_alt),
-                  categoryItem("Cook", Icons.restaurant),
-                  categoryItem("Bone Setter", Icons.medical_services),
+                  categoryItem(context, "Maid", Icons.cleaning_services),
+                  categoryItem(context, "Plumber", Icons.plumbing),
+                  categoryItem(context, "Electrician", Icons.electrical_services),
+                  categoryItem(context, "Carpenter", Icons.chair_alt),
+                  categoryItem(context, "Cook", Icons.restaurant),
+                  categoryItem(context, "Bone Setter", Icons.medical_services),
                 ],
               ),
             )
@@ -54,9 +55,19 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget categoryItem(String label, IconData icon) {
-    return Container(
+Widget categoryItem(BuildContext context, String label, IconData icon) {
+  return InkWell(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => WorkerList(category: label),
+        ),
+      );
+    },
+    child: Container(
       decoration: BoxDecoration(
         color: Colors.red.shade50,
         borderRadius: BorderRadius.circular(15),
@@ -71,6 +82,6 @@ class HomeScreen extends StatelessWidget {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600))
         ],
       ),
-    );
-  }
+    ),
+  );
 }
